@@ -41,8 +41,8 @@ class Plugin extends PluginBase
 	public function registerMailTemplates()
 	{
 		return [
-			'pensoft.forms::mail.autoreply' => 'pensoft.forms::lang.mail.templates.autoreply',
-			'pensoft.forms::mail.notification' => 'pensoft.forms::lang.mail.templates.notification',
+			'pensoft.contactform::mail.autoreply' => 'pensoft.contactform::lang.mail.templates.autoreply',
+			'pensoft.contactform::mail.notification' => 'pensoft.contactform::lang.mail.templates.notification',
 		];
 	}
 

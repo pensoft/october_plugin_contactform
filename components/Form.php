@@ -79,7 +79,7 @@ class Form extends ComponentBase
 			];
 
 //			// send mail to user submitting the form
-			Mail::send('pensoft.forms::mail.autoreply', $vars, function($message) {
+			Mail::send('pensoft.contactform::mail.autoreply', $vars, function($message) {
 
 				$message->to(Input::get('email'), Input::get('first_name').' '.Input::get('last_name'));
 
@@ -105,7 +105,7 @@ class Form extends ComponentBase
 			$recipients = array_unique(array_merge($categoryEmails, $countryEmails));
 
 			foreach($recipients as $mail){
-				Mail::send('pensoft.forms::mail.notification', $vars, function($message)  use ($mail) {
+				Mail::send('pensoft.contactform::mail.notification', $vars, function($message)  use ($mail) {
 
 					$message->to($mail);
 

@@ -1,0 +1,4 @@
+1.0.1: First version of ContactForm
+1.0.2:
+    - 'Created table pensoft_contactform_recipientsgroups'
+    - create_recipientsgroups_table.php

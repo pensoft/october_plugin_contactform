@@ -34,12 +34,12 @@ class Form extends ComponentBase
 
 	public function countries()
 	{
-		return Recipientsgroup::where('type', 1)->get();
+		return Recipientsgroup::where('type', 1)->orderBy('title')->get();
 	}
 
 	public function categories()
 	{
-		return Recipientsgroup::where('type', 2)->get();
+		return Recipientsgroup::where('type', 2)->orderBy('title')->get();
 	}
 
     public function onSubmit(){

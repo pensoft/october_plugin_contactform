@@ -12,3 +12,5 @@
     - 'register mail templates'
 1.0.7:
     - 'removed the register mail templates'
+1.0.8:
+    - 'order dropdowns by name'

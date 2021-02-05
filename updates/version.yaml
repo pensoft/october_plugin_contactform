@@ -4,3 +4,5 @@
     - create_recipientsgroups_table.php
 1.0.3:
     - 'recaptcha response hidden field added '
+1.0.4:
+    - 'recaptcha response hidden field removed '

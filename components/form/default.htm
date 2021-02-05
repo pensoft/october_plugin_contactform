@@ -53,6 +53,11 @@
 				<div class="col-md-12 col-xs-12 field">
 					<label for="message">Message <span class="red">*</span></label>
 					<textarea name="message"  class="" id="message" rows="15"> </textarea>
+					<script>
+						// Replace the <textarea id="editor1"> with a CKEditor
+						// instance, using default configuration.
+						CKEDITOR.replace( 'message' );
+					</script>
 				</div>
 
 				<div class="col-md-12 col-xs-12 field">

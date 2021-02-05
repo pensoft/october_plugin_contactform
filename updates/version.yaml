@@ -14,3 +14,5 @@
     - 'removed the register mail templates'
 1.0.8:
     - 'order dropdowns by name'
+1.0.9:
+    - 'added basic ckeditor'

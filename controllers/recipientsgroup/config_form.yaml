@@ -1,0 +1,31 @@
+# ===================================
+#  Form Behavior Config
+# ===================================
+
+# Record name
+name: Recipientsgroup
+
+# Model Form Field configuration
+form: $/pensoft/contactform/models/recipientsgroup/fields.yaml
+
+# Model Class name
+modelClass: Pensoft\ContactForm\Models\Recipientsgroup
+
+# Default redirect location
+defaultRedirect: pensoft/contactform/recipientsgroup
+
+# Create page
+create:
+    title: Create Recipientsgroup
+    redirect: pensoft/contactform/recipientsgroup/update/:id
+    redirectClose: pensoft/contactform/recipientsgroup
+
+# Update page
+update:
+    title: Edit Recipientsgroup
+    redirect: pensoft/contactform/recipientsgroup
+    redirectClose: pensoft/contactform/recipientsgroup
+
+# Preview page
+preview:
+    title: Preview Recipientsgroup

@@ -10,3 +10,5 @@
     - 'get recaptcha form field value'
 1.0.6:
     - 'register mail templates'
+1.0.7:
+    - 'removed the register mail templates'

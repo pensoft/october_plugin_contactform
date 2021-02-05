@@ -40,10 +40,10 @@ class Plugin extends PluginBase
 	 */
 	public function registerMailTemplates()
 	{
-		return [
-			'pensoft.contactform::mail.autoreply' => 'pensoft.contactform::lang.mail.templates.autoreply',
-			'pensoft.contactform::mail.notification' => 'pensoft.contactform::lang.mail.templates.notification',
-		];
+//		return [
+//			'pensoft.contactform::mail.autoreply' => 'pensoft.contactform::lang.mail.templates.autoreply',
+//			'pensoft.contactform::mail.notification' => 'pensoft.contactform::lang.mail.templates.notification',
+//		];
 	}
 
     /**

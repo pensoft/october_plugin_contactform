@@ -6,3 +6,5 @@
     - 'recaptcha response hidden field added '
 1.0.4:
     - 'recaptcha response hidden field removed '
+1.0.5:
+    - 'get recaptcha form field value'

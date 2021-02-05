@@ -51,6 +51,7 @@ class Form extends ComponentBase
 				'country' => Input::get('country'),
 				'category' => Input::get('category'),
 				'message' => Input::get('message'),
+				'g-recaptcha-response' => Input::get('g-recaptcha-response'),
 			],
 			[
 				'first_name' => 'required|string|min:2',

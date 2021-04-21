@@ -57,8 +57,8 @@ class Form extends ComponentBase
 				'first_name' => 'required|string|min:2',
 				'last_name' => 'required|string|min:2',
 				'email' => 'required|email',
-				'country' => 'required_without:category',
-				'category' => 'required_without:country',
+				'country' => 'required',
+				'category' => 'required',
 				'message' => 'required|string|min:5',
 				'g-recaptcha-response' => [
 					'required',
@@ -75,7 +75,9 @@ class Form extends ComponentBase
 				'first_name' => Input::get('first_name'),
 				'last_name' => Input::get('last_name'),
 				'email' => Input::get('email'),
-				'body' => Input::get('message')
+				'body' => Input::get('message'),
+				'subject' => Input::get('category'),
+				'email' => Input::get('email')
 			];
 
 //			// send mail to user submitting the form
@@ -85,29 +87,24 @@ class Form extends ComponentBase
 
 			});
 
-			// send mail to group of recipients merged country and category email relevant values
+			// send mail to group of recipients country email relevant values
 
 			$country = Input::get('country');
-			$category = Input::get('category');
+			$replyToMail = Input::get('email');
 
 			$countryEmails = [];
-			$categoryEmails = [];
 			if((int)$country){
 				$countryData = Recipientsgroup::where('id', (int)$country)->first()->toArray();
 				$countryEmails = explode(',', $countryData['emails']);
 			}
 
-			if((int)$category){
-				$categoryData = Recipientsgroup::where('id', (int)$category)->first()->toArray();
-				$categoryEmails = explode(',', $categoryData['emails']);
-			}
-
-			$recipients = array_unique(array_merge($categoryEmails, $countryEmails));
+			$recipients = array_unique($countryEmails);
 
 			foreach($recipients as $mail){
 				Mail::send('pensoft.contactform::mail.notification', $vars, function($message)  use ($mail) {
 
 					$message->to($mail);
+					$message->replyTo($replyToMail);
 
 				});
 

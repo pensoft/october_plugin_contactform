@@ -16,3 +16,5 @@
     - 'order dropdowns by name'
 1.0.9:
     - 'added basic ckeditor'
+1.0.10:
+    - 'form fields requirements changes; replyto added'

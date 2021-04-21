@@ -18,3 +18,5 @@
     - 'added basic ckeditor'
 1.0.10:
     - 'form fields requirements changes; replyto added'
+1.0.11:
+    - 'form fields fix'

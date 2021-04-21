@@ -70,13 +70,17 @@ class Form extends ComponentBase
 		if($validator->fails()){
 			Flash::error($validator->messages()->first());
 		}else{
+
+			$category = Input::get('category');
+			$catName = Recipientsgroup::find($category);
+
 			// These variables are available inside the message as Twig
 			$vars = [
 				'first_name' => Input::get('first_name'),
 				'last_name' => Input::get('last_name'),
 				'email' => Input::get('email'),
 				'body' => Input::get('message'),
-				'subject' => Input::get('category'),
+				'subject_msg' => $catName->title,
 				'email' => Input::get('email')
 			];
 
@@ -90,6 +94,7 @@ class Form extends ComponentBase
 			// send mail to group of recipients country email relevant values
 
 			$country = Input::get('country');
+
 			$replyToMail = Input::get('email');
 
 			$countryEmails = [];
@@ -101,7 +106,7 @@ class Form extends ComponentBase
 			$recipients = array_unique($countryEmails);
 
 			foreach($recipients as $mail){
-				Mail::send('pensoft.contactform::mail.notification', $vars, function($message)  use ($mail) {
+				Mail::send('pensoft.contactform::mail.notification', $vars, function($message)  use ($mail, $replyToMail) {
 
 					$message->to($mail);
 					$message->replyTo($replyToMail);

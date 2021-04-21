@@ -20,3 +20,5 @@
     - 'form fields requirements changes; replyto added'
 1.0.11:
     - 'form fields fix'
+1.0.12:
+    - 'added composer json file'

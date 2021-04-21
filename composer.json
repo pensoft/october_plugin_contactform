@@ -1,0 +1,8 @@
+{
+  "name": "pensoft/contactform-plugin",
+  "type": "october-plugin",
+  "description": "Contact form for factsheets",
+  "require": {
+	"composer/installers": "~1.0"
+  }
+}

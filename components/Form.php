@@ -34,7 +34,7 @@ class Form extends ComponentBase
 
 	public function countries()
 	{
-		return Recipientsgroup::where('type', 1)->orderBy('title')->get();
+		return Recipientsgroup::where('type', 1)->orderByRaw("(title ilike '%country specific%') DESC")->orderBy('title')->get();
 	}
 
 	public function categories()

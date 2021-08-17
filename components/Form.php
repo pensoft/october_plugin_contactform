@@ -28,6 +28,11 @@ class Form extends ComponentBase
 				'type' => 'dropdown',
 				'default' => 'template1'
 			],
+			'recaptcha_key' => [
+				'title' => 'Recaptcha site key',
+				'type' => 'string',
+				'default' => ''
+			],
 		];
     }
 

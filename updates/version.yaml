@@ -28,3 +28,5 @@
     - 'new template'
 1.0.15:
     - 'new template recaptcha'
+1.0.16:
+    - 'get recaptcha code from admin'

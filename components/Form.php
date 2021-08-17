@@ -22,8 +22,22 @@ class Form extends ComponentBase
 
     public function defineProperties()
     {
-        return [];
+        return [
+			'templates' => [
+				'title' => 'Select templates',
+				'type' => 'dropdown',
+				'default' => 'template1'
+			],
+		];
     }
+
+	public function getTemplatesOptions()
+	{
+		return [
+			'template1' => 'Template 1',
+			'template2' => 'Template 2',
+		];
+	}
 
     public function onRun(){
 		$this->page['categories'] = $this->categories();
@@ -45,20 +59,20 @@ class Form extends ComponentBase
     public function onSubmit(){
 		$validator = Validator::make(
 			[
-				'first_name' => Input::get('first_name'),
-				'last_name' => Input::get('last_name'),
-				'email' => Input::get('email'),
-				'country' => Input::get('country'),
-				'category' => Input::get('category'),
-				'message' => Input::get('message'),
-				'g-recaptcha-response' => Input::get('g-recaptcha-response'),
+				'first_name' => \Input::get('first_name'),
+				'last_name' => \Input::get('last_name'),
+				'email' => \Input::get('email'),
+				'country' => \Input::get('country'),
+				'category' => \Input::get('category'),
+				'message' => \Input::get('message'),
+				'g-recaptcha-response' => \Input::get('g-recaptcha-response'),
 			],
 			[
 				'first_name' => 'required|string|min:2',
 				'last_name' => 'required|string|min:2',
 				'email' => 'required|email',
-				'country' => 'required',
-				'category' => 'required',
+//				'country' => 'required',
+//				'category' => 'required',
 				'message' => 'required|string|min:5',
 				'g-recaptcha-response' => [
 					'required',
@@ -71,44 +85,57 @@ class Form extends ComponentBase
 			Flash::error($validator->messages()->first());
 		}else{
 
-			$category = Input::get('category');
+			$category = \Input::get('category');
 			$catName = Recipientsgroup::find($category);
+
+
+			$categoryEmails = [];
+			if((int)$category){
+				$categoryData = Recipientsgroup::where('id', (int)$category)->first()->toArray();
+				$categoryEmails = explode(',', $categoryData['emails']);
+			}else{
+				$categoryData = Recipientsgroup::first()->toArray();
+				$categoryEmails = explode(',', $categoryData['emails']);
+			}
+
+
+			$recipients = array_unique($categoryEmails);
 
 			// These variables are available inside the message as Twig
 			$vars = [
-				'first_name' => Input::get('first_name'),
-				'last_name' => Input::get('last_name'),
-				'email' => Input::get('email'),
-				'body' => Input::get('message'),
+				'first_name' => \Input::get('first_name'),
+				'last_name' => \Input::get('last_name'),
+				'email' => \Input::get('email'),
+				'body' => \Input::get('message'),
 				'subject_msg' => $catName->title,
-				'email' => Input::get('email')
+				'email' => \Input::get('email')
 			];
 
-//			// send mail to user submitting the form
+			// send mail to user submitting the form
 			Mail::send('pensoft.contactform::mail.autoreply', $vars, function($message) {
 
-				$message->to(Input::get('email'), Input::get('first_name').' '.Input::get('last_name'));
+				$message->to(\Input::get('email'), \Input::get('first_name').' '.\Input::get('last_name'));
 
 			});
 
 			// send mail to group of recipients country email relevant values
 
-			$country = Input::get('country');
+//			$country = \Input::get('country');
 
-			$replyToMail = Input::get('email');
-
-			$countryEmails = [];
-			if((int)$country){
-				$countryData = Recipientsgroup::where('id', (int)$country)->first()->toArray();
-				$countryEmails = explode(',', $countryData['emails']);
-			}
-
-			$recipients = array_unique($countryEmails);
+			$replyToMail = \Input::get('email');
+//
+//			$countryEmails = [];
+//			if((int)$country){
+//				$countryData = Recipientsgroup::where('id', (int)$country)->first()->toArray();
+//				$countryEmails = explode(',', $countryData['emails']);
+//			}
+//
+//			$recipients = array_unique($countryEmails);
 
 			foreach($recipients as $mail){
 				Mail::send('pensoft.contactform::mail.notification', $vars, function($message)  use ($mail, $replyToMail) {
 
-					$message->to($mail);
+					$message->to(trim($mail));
 					$message->replyTo($replyToMail);
 
 				});

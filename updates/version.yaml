@@ -30,3 +30,5 @@
     - 'new template recaptcha'
 1.0.16:
     - 'get recaptcha code from admin'
+1.0.17:
+    - 'form submit fix'

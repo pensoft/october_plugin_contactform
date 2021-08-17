@@ -91,16 +91,18 @@ class Form extends ComponentBase
 		}else{
 
 			$category = \Input::get('category');
-			$catName = Recipientsgroup::find($category);
+
 
 
 			$categoryEmails = [];
 			if((int)$category){
 				$categoryData = Recipientsgroup::where('id', (int)$category)->first()->toArray();
 				$categoryEmails = explode(',', $categoryData['emails']);
+				$catName = Recipientsgroup::find($category);
 			}else{
 				$categoryData = Recipientsgroup::first()->toArray();
 				$categoryEmails = explode(',', $categoryData['emails']);
+				$catName = Recipientsgroup::first();
 			}
 
 

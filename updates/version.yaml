@@ -37,3 +37,5 @@
 1.0.19:
     - 'Created table pensoft_contactform_data'
     - builder_table_create_pensoft_contactform_data.php
+1.0.20:
+    - 'reCaptcha'

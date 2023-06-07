@@ -7,6 +7,7 @@ use Validator;
 use Redirect;
 use October\Rain\Support\Facades\Flash;
 use Pensoft\ContactForm\Models\Recipientsgroup;
+use Pensoft\ContactForm\Models\Data as MailsData;
 use Multiwebinc\Recaptcha\Validators\RecaptchaValidator;
 use ValidationException;
 
@@ -75,7 +76,7 @@ class Form extends ComponentBase
 				'country' => \Input::get('country'),
 				'category' => \Input::get('category'),
 				'message' => \Input::get('message'),
-				'g-recaptcha-response' => \Input::get('g-recaptcha-response'),
+//				'g-recaptcha-response' => \Input::get('g-recaptcha-response'),
 			],
 			[
 				'first_name' => 'required|string|min:2',
@@ -84,10 +85,10 @@ class Form extends ComponentBase
 //				'country' => 'required',
 //				'category' => 'required',
 				'message' => 'required|string|min:5',
-				'g-recaptcha-response' => [
-					'required',
-					new RecaptchaValidator,
-				],
+//				'g-recaptcha-response' => [
+//					'required',
+//					new RecaptchaValidator,
+//				],
 			]
 		);
 
@@ -118,7 +119,6 @@ class Form extends ComponentBase
 				'first_name' => \Input::get('first_name'),
 				'last_name' => \Input::get('last_name'),
 				'body' => \Input::get('message'),
-				'subject_msg' => $catName->title,
 				'email' => \Input::get('email')
 			];
 
@@ -153,6 +153,14 @@ class Form extends ComponentBase
 
 //				Mail::sendTo($mail, 'pensoft.forms::mail.notification', $vars);
 			}
+
+            $data = new MailsData();
+            $data->email =  $vars['email'];
+            $data->first_name = $vars['first_name'];
+            $data->last_name = $vars['last_name'];
+            $data->message = $vars['body'];
+            $data->form = $this->property('message_label');
+            $data->save();
 
 			Flash::success('Thank you');
 

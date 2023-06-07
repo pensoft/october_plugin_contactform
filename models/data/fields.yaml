@@ -1,0 +1,32 @@
+fields:
+    email:
+        label: Email
+        span: auto
+        disabled: 1
+        readOnly: 1
+        type: text
+    form:
+        label: Form
+        span: auto
+        disabled: 1
+        readOnly: 1
+        type: text
+    first_name:
+        label: 'First name'
+        span: auto
+        disabled: 1
+        readOnly: 1
+        type: text
+    last_name:
+        label: 'Last name'
+        span: auto
+        disabled: 1
+        readOnly: 1
+        type: text
+    message:
+        label: Message
+        size: large
+        span: auto
+        disabled: 1
+        readOnly: 1
+        type: richeditor

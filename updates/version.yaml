@@ -1,4 +1,4 @@
-1.0.1: First version of ContactForm
+1.0.1: 'First version of ContactForm'
 1.0.2:
     - 'Created table pensoft_contactform_recipientsgroups'
     - create_recipientsgroups_table.php
@@ -34,3 +34,6 @@
     - 'form submit fix'
 1.0.18:
     - 'Mgs field property'
+1.0.19:
+    - 'Created table pensoft_contactform_data'
+    - builder_table_create_pensoft_contactform_data.php

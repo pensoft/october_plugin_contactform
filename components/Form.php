@@ -33,6 +33,11 @@ class Form extends ComponentBase
 				'type' => 'string',
 				'default' => ''
 			],
+			'message_label' => [
+				'title' => 'Message field label',
+				'type' => 'string',
+				'default' => 'Message'
+			],
 		];
     }
 
@@ -112,7 +117,6 @@ class Form extends ComponentBase
 			$vars = [
 				'first_name' => \Input::get('first_name'),
 				'last_name' => \Input::get('last_name'),
-				'email' => \Input::get('email'),
 				'body' => \Input::get('message'),
 				'subject_msg' => $catName->title,
 				'email' => \Input::get('email')

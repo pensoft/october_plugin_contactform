@@ -32,3 +32,5 @@
     - 'get recaptcha code from admin'
 1.0.17:
     - 'form submit fix'
+1.0.18:
+    - 'Mgs field property'

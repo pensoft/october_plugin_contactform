@@ -43,3 +43,5 @@
     - 'new template 3'
 1.0.22:
     - 'reCaptcha in template 3'
+1.0.23:
+    - 'fix'

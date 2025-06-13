@@ -45,3 +45,5 @@
     - 'reCaptcha in template 3'
 1.0.23:
     - 'fix'
+1.0.24:
+    - 'Permissions'

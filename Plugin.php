@@ -58,4 +58,42 @@ class Plugin extends PluginBase
             'Pensoft\ContactForm\Components\Form' => 'SimpleContactFormComponent',
         ];
     }
+
+    public function registerPermissions()
+    {
+        return [
+            'pensoft.contactform.access' => [
+                'tab' => 'Contact form',
+                'label' => 'Manage contactform'
+            ],
+        ];
+    }
+
+    public function registerNavigation()
+    {
+        return [
+            'contactform' => [
+                'label'       => 'Contact form',
+                'url'         => \Backend::url('pensoft/contactform/recipientsgroup'),
+                'icon'        => 'icon-external-link-square',
+                'permissions' => ['pensoft.contactform.*'],
+                'sideMenu' => [
+                    'side-menu-item2' => [
+                        'label'       => 'Mails',
+                        'url'         => \Backend::url('pensoft/contactform/mails'),
+                        'icon'        => 'icon-envelope',
+                        'permissions' => ['pensoft.contactform.*'],
+                    ],
+                    'side-menu-item' => [
+                        'label'       => 'Recipients groups',
+                        'url'         => \Backend::url('pensoft/contactform/recipientsgroup'),
+                        'icon'        => 'icon-star-o',
+                        'permissions' => ['pensoft.contactform.*'],
+                    ],
+
+                ]
+            ],
+        ];
+    }
 }
+

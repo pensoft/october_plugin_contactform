@@ -48,6 +48,7 @@ class Form extends ComponentBase
             'template1' => 'Template 1',
             'template2' => 'Template 2',
             'template3' => 'Template 3',
+            'template4' => 'Template 4',
         ];
     }
 
@@ -121,6 +122,7 @@ class Form extends ComponentBase
                 'first_name' => \Input::get('first_name'),
                 'last_name' => \Input::get('last_name'),
                 'organisation' => \Input::get('organisation'),
+                'subject' => \Input::get('subject'),
                 'body' => \Input::get('message'),
                 'email' => \Input::get('email')
             ];
@@ -161,6 +163,8 @@ class Form extends ComponentBase
             $data->email =  $vars['email'];
             $data->first_name = $vars['first_name'];
             $data->last_name = $vars['last_name'];
+            $data->organisation = $vars['organisation'];
+            $data->subject = $vars['subject'];
             $data->message = $vars['body'];
             $data->form = $this->property('message_label');
             $data->save();

@@ -44,9 +44,9 @@
 1.0.22:
     - 'reCaptcha in template 3'
 1.0.23:
-    - fix
+    - 'fix'
 1.0.24:
-    - Permissions
+    - 'Permissions'
 1.0.25:
     - 'Updated table pensoft_contactform_data'
     - builder_table_update_pensoft_contactform_data.php

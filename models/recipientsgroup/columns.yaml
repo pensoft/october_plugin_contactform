@@ -1,0 +1,17 @@
+columns:
+    id:
+        label: ID
+        type: number
+        searchable: true
+    title:
+        label: Title
+        type: text
+        searchable: true
+    emails:
+        label: 'Related emails'
+        type: text
+        searchable: true
+    type:
+        label: Type
+        type: text
+        searchable: true

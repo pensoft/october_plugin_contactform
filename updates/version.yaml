@@ -1,0 +1,57 @@
+1.0.1: 'First version of ContactForm'
+1.0.2:
+    - 'Created table pensoft_contactform_recipientsgroups'
+    - create_recipientsgroups_table.php
+1.0.3:
+    - 'recaptcha response hidden field added '
+1.0.4:
+    - 'recaptcha response hidden field removed '
+1.0.5:
+    - 'get recaptcha form field value'
+1.0.6:
+    - 'register mail templates'
+1.0.7:
+    - 'removed the register mail templates'
+1.0.8:
+    - 'order dropdowns by name'
+1.0.9:
+    - 'added basic ckeditor'
+1.0.10:
+    - 'form fields requirements changes; replyto added'
+1.0.11:
+    - 'form fields fix'
+1.0.12:
+    - 'added composer json file'
+1.0.13:
+    - 'order countries drowpdown list'
+1.0.14:
+    - 'new template'
+1.0.15:
+    - 'new template recaptcha'
+1.0.16:
+    - 'get recaptcha code from admin'
+1.0.17:
+    - 'form submit fix'
+1.0.18:
+    - 'Mgs field property'
+1.0.19:
+    - 'Created table pensoft_contactform_data'
+    - builder_table_create_pensoft_contactform_data.php
+1.0.20:
+    - reCaptcha
+1.0.21:
+    - 'new template 3'
+1.0.22:
+    - 'reCaptcha in template 3'
+1.0.23:
+    - 'fix'
+1.0.24:
+    - 'Permissions'
+1.0.25:
+    - 'Updated table pensoft_contactform_data'
+    - builder_table_update_pensoft_contactform_data.php
+1.0.26:
+    - 'Template 4 translate'
+
+4.0.1:
+    - 'Migrated to OctoberCMS 4 and PHP 8.2'

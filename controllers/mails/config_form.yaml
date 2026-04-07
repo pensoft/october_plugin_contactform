@@ -1,0 +1,10 @@
+name: Mails
+form: $/pensoft/contactform/models/data/fields.yaml
+modelClass: Pensoft\ContactForm\Models\Data
+defaultRedirect: pensoft/contactform/mails
+create:
+    redirect: 'pensoft/contactform/mails/update/:id'
+    redirectClose: pensoft/contactform/mails
+update:
+    redirect: pensoft/contactform/mails
+    redirectClose: pensoft/contactform/mails

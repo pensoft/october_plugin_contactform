@@ -1,0 +1,19 @@
+fields:
+    title:
+        label: Title
+        span: left
+        disabled: 0
+        type: text
+    emails:
+        label: Emails
+        span: right
+        type: text
+        comment: 'Comma separated'
+    type:
+        label: Type
+        options:
+            1: Country
+            2: Category
+        showSearch: true
+        span: auto
+        type: dropdown

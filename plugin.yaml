@@ -1,0 +1,20 @@
+plugin:
+    name: 'pensoft.contactform::lang.plugin.name'
+    description: 'pensoft.contactform::lang.plugin.description'
+    author: Pensoft
+    icon: icon-leaf
+    homepage: ''
+navigation:
+    contactform:
+        label: 'Contact form'
+        url: pensoft/contactform/recipientsgroup
+        icon: icon-external-link-square
+        sideMenu:
+            side-menu-item2:
+                label: Mails
+                url: pensoft/contactform/mails
+                icon: icon-envelope
+            side-menu-item:
+                label: 'Recipients groups'
+                url: pensoft/contactform/recipientsgroup
+                icon: icon-star-o
